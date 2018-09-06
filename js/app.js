@@ -10,6 +10,7 @@ var Enemy = function (x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
 };
 
+
 // Update the enemy's position, required for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function (dt) {
@@ -21,7 +22,7 @@ Enemy.prototype.update = function (dt) {
     if (this.x > 510) {
         this.x = -50;
         this.speed = 100 + Math.floor(Math.random() * 222);
-    };
+    }
 
     // Checks for collisions between the player and enemies
     if (player.x < this.x + 80 &&
@@ -30,7 +31,7 @@ Enemy.prototype.update = function (dt) {
         60 + player.y > this.y) {
         player.x = 202;
         player.y = 405;
-    };
+    }
 };
 
 // Renders the enemy into the game
@@ -65,24 +66,24 @@ Player.prototype.handleInput = function (keyPress) {
     // Also enables user not to go off the game tiles on the left side
     if (keyPress == 'left' && this.x > 0) {
         this.x -= 102;
-    };
+    }
 
     // Enables user on right arrow key to move right on the x axis by 102
     // Also enables user not to go off the game tiles on the right side
     if (keyPress == 'right' && this.x < 405) {
         this.x += 102;
-    };
+    }
 
     // Enables user on up arrow key to move upwards on the y axis by 83
     if (keyPress == 'up' && this.y > 0) {
         this.y -= 83;
-    };
+    }
 
     // Enables user on down arrow key to move downwards on the y axis by 83
     // Also enables user not to go off the game tiles on the bottom side
     if (keyPress == 'down' && this.y < 405) {
         this.y += 83;
-    };
+    }
 
     // Once the user reaches the top of the page; the water, the user is
     // Instantly reset to the starting position
@@ -91,7 +92,7 @@ Player.prototype.handleInput = function (keyPress) {
             this.x = 202;
             this.y = 405;
         }, 800);
-    };
+    }
 };
 
 
